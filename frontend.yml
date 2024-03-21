@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: fullstack
+  labels:
+    role: frontend
+spec: 
+  replicas: 1
+  selector:
+    matchLabels: 
+      role: frontend
+  template:
+    metadata:
+      labels:
+        role: frontend
+    spec: 
+      containers:
+      - name: frontend
+        image: persevcareers6577/project-final:shiva
+        ports:
+        - containerPort: 3000
