@@ -1,2 +1,1 @@
-# Project-Final-GO
-ReactJs,nodejs and Mongo DB Project
+This is for frontend deployment having react code onto nginx webserver.
