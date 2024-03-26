@@ -1,0 +1,76 @@
+def version = "frontend_1.0.${env.BUILD_NUMBER}" 
+pipeline {
+    agent {
+        label 'connect'       
+    }
+// Assuming you're using Jenkins BUILD_NUMBER as the version
+    environment {
+        KUBECONFIG_CREDENTIAL_ID = 'k8s-kubeconfig-dev'
+
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/persevcareers/React-Frontend.git'
+            }
+        } 
+  
+    
+
+        stage('Login to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh "echo \"$DOCKER_PASSWORD\" | sudo docker login --username \"$DOCKER_USERNAME\" --password-stdin"
+ 
+                }
+            }
+        }
+
+
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Define Dockerfile location
+                    def dockerfilePath = '.'
+
+                    
+                    // Build Docker image with version tag
+            
+                      sh " sudo docker build -t 'persevcareers6577/perseverance-project:${version}'  ."
+                }
+            }
+        }
+        
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    // Define version number (you can get it from external source or use timestamp, for example)
+             //       def version = "1.0.${env.BUILD_NUMBER}" // Assuming you're using Jenkins BUILD_NUMBER as the version
+
+                    // Push Docker image to repository
+                sh "sudo docker push 'persevcareers6577/perseverance-project:${version}'"
+                }
+            }
+        }
+        
+        stage('Deploy to Kubernetes') {
+            steps {
+                withCredentials([file(credentialsId: KUBECONFIG_CREDENTIAL_ID, variable: 'KUBECONFIG')]) {
+                    script {
+                        // Retrieve kubeconfig file path from credentials
+                        def kubeconfigPath = env.KUBECONFIG
+                        
+                        sh "export KUBECONFIG=${kubeconfigPath}"
+                 
+                        sh "sudo kubectl apply -f frontend.yml --validate=false"
+     //                   sh "sudo kubectl apply -f service.yml"
+                    
+                        sh "kubectl get pods -n three-tier"
+                    }
+                }
+            }
+        }
+    }
+}
