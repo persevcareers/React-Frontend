@@ -20,7 +20,7 @@ RUN npm run build
 # Production Stage
 FROM nginx:alpine
 
-#ENV REACT_APP_BACKEND_URL "http://43.204.114.183:31478/api/tasks"
+ENV REACT_APP_BACKEND_URL "http://43.204.142.222:30008/api/tasks"
 # Copy custom nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
