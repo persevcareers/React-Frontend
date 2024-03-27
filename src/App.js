@@ -14,7 +14,7 @@ class App extends Tasks {
                     <h1>Perseverance Student's Corner</h1>
                 </header>
                 <div className="main-content">
-                    <Paper elevation={3} className="todo-container">
+                    <Paper elevation={3} className="perseverance-container">
                         <form onSubmit={this.handleSubmit} className="task-form">
                             <TextField
                                 variant="outlined"
