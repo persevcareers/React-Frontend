@@ -13,7 +13,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px; 
-    background: Radial-gradient(135deg, #000080, #ffffff);
+    background: radial-gradient(135deg, #000080, #ffffff);
 }
 
 /* Optional: Add some more global styles for typography */
