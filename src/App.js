@@ -1,19 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
 import Tasks from "./Tasks";
 import { Paper, TextField, Checkbox, Button } from "@material-ui/core";
 import "./App.css"; // Update your CSS file accordingly
 
-class App extends Tasks {
+class App extends Component {
     state = { tasks: [], currentTask: "" };
 
     render() {
         const { tasks, currentTask } = this.state;
         return (
             <div className="app">
-                <header className="app-header">
-                    <h1>Perseverance Student Checklist</h1>
-                </header>
+                {/* Left Pane with Course Details */}
+                <div className="left-pane">
+                    <h2>Course Details</h2>
+                    {/* Add your course details here */}
+                    <p>Course Name: XYZ</p>
+                    <p>Instructor: ABC</p>
+                    <p>Duration: 10 weeks</p>
+                </div>
+
+                {/* Main Content */}
                 <div className="main-content">
+                    <header className="app-header">
+                        <h1>Perseverance Student Checklist</h1>
+                    </header>
                     <Paper elevation={3} className="todo-container">
                         <form onSubmit={this.handleSubmit} className="task-form">
                             <TextField
@@ -23,7 +33,7 @@ class App extends Tasks {
                                 value={currentTask}
                                 required={true}
                                 onChange={this.handleChange}
-                                placeholder="Add Check List Items"
+                                placeholder="Add Checklist Items"
                             />
                             <Button className="add-task-btn" color="primary" variant="outlined" type="submit">
                                 Add Item
