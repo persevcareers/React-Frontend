@@ -18,6 +18,6 @@ spec:
     spec: 
       containers:
       - name: frontend
-        image: persevcareers6577/perseverance-project:$VERSION
+        image: persevcareers6577/perseverance-project:VERSION
         ports:
         - containerPort: 3000
