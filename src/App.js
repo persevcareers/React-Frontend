@@ -4,10 +4,16 @@ import { Paper, TextField, Checkbox, Button } from "@material-ui/core";
 import "./App.css"; // Update your CSS file accordingly
 
 class App extends Tasks {
-    state = { tasks: [], currentTask: "" };
+    state = { 
+        tasks: [], 
+        currentTask: "", 
+        studentName: "", 
+        mobileNumber: "", 
+        interestedCourse: "" 
+    };
 
     render() {
-        const { tasks, currentTask } = this.state;
+        const { tasks, currentTask, studentName, mobileNumber, interestedCourse } = this.state;
         return (
             <div className="app">
                 <header className="app-header">
@@ -19,14 +25,32 @@ class App extends Tasks {
                             <TextField
                                 variant="outlined"
                                 size="small"
-                                className="task-input"
-                                value={currentTask}
+                                className="input-field"
+                                value={studentName}
                                 required={true}
-                                onChange={this.handleChange}
-                                placeholder="Add Your Intrested Courses"
+                                onChange={(e) => this.setState({ studentName: e.target.value })}
+                                placeholder="Student Name"
+                            />
+                            <TextField
+                                variant="outlined"
+                                size="small"
+                                className="input-field"
+                                value={mobileNumber}
+                                required={true}
+                                onChange={(e) => this.setState({ mobileNumber: e.target.value })}
+                                placeholder="Mobile Number"
+                            />
+                            <TextField
+                                variant="outlined"
+                                size="small"
+                                className="input-field"
+                                value={interestedCourse}
+                                required={true}
+                                onChange={(e) => this.setState({ interestedCourse: e.target.value })}
+                                placeholder="Interested Course"
                             />
                             <Button className="add-task-btn" color="primary" variant="outlined" type="submit">
-                                Add Course
+                                Add Student
                             </Button>
                         </form>
                         <div className="tasks-list">
