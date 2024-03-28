@@ -4,10 +4,10 @@ import { Paper, TextField, Checkbox, Button } from "@material-ui/core";
 import "./App.css"; // Update your CSS file accordingly
 
 class App extends Tasks {
-state = { tasks: [], currentTask: "" };
+    state = { tasks: [], currentTask: "" };
 
     render() {
-        const { tasks, currentTask, studentName, mobileNumber, interestedCourse } = this.state;
+        const { tasks, currentTask } = this.state;
         return (
             <div className="app">
                 <header className="app-header">
@@ -19,32 +19,14 @@ state = { tasks: [], currentTask: "" };
                             <TextField
                                 variant="outlined"
                                 size="small"
-                                className="input-field"
-                                value={studentName}
+                                className="task-input"
+                                value={currentTask}
                                 required={true}
-                                onChange={(e) => this.setState({ studentName: e.target.value })}
-                                placeholder="Student Name"
-                            />
-                            <TextField
-                                variant="outlined"
-                                size="small"
-                                className="input-field"
-                                value={mobileNumber}
-                                required={true}
-                                onChange={(e) => this.setState({ mobileNumber: e.target.value })}
-                                placeholder="Mobile Number"
-                            />
-                            <TextField
-                                variant="outlined"
-                                size="small"
-                                className="input-field"
-                                value={interestedCourse}
-                                required={true}
-                                onChange={(e) => this.setState({ interestedCourse: e.target.value })}
-                                placeholder="Interested Course"
+                                onChange={this.handleChange}
+                                placeholder="Add Your Intrested Courses"
                             />
                             <Button className="add-task-btn" color="primary" variant="outlined" type="submit">
-                                Add Student
+                                Add Course
                             </Button>
                         </form>
                         <div className="tasks-list">
