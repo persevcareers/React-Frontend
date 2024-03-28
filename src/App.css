@@ -25,8 +25,27 @@
     width: 100%;
     max-width: 600px;
     padding: 20px;
+    position: relative; /* Ensure relative positioning for absolute elements */
+    border-left: 1px solid #ccc; /* Add a vertical gray line on the left side */
+    border-right: 1px solid #ccc; /* Add a vertical gray line on the right side */
 }
 
+.vertical-line-left,
+.vertical-line-right {
+    position: absolute; /* Position the lines absolutely */
+    top: 0;
+    bottom: 0;
+    width: 1px; /* Width of the vertical lines */
+    background-color: #ccc; /* Color of the vertical lines */
+}
+
+.vertical-line-left {
+    left: 0; /* Position the left line on the left side */
+}
+
+.vertical-line-right {
+    right: 0; /* Position the right line on the right side */
+}
 .task-form {
     display: flex;
     gap: 10px;
