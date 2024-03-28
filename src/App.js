@@ -26,7 +26,7 @@ class App extends Tasks {
                                 placeholder="Add Your Intrested Courses"
                             />
                             <Button className="add-task-btn" color="primary" variant="outlined" type="submit">
-                                Add Item
+                                Add Course
                             </Button>
                         </form>
                         <div className="tasks-list">
