@@ -5,12 +5,13 @@
 }
 
 .app-header {
-    background-color: gray; 
+    background-color: gray; /* Change background color to gray */
     color: white;
-    padding: 10px 0; 
+    padding: 10px 0; /* Adjust padding to remove horizontal padding */
     text-align: center;
     font-size: 1.5rem;
-    margin: 0; 
+    margin: 0; /* Add margin 0 to remove default margin */
+    width: 100%; /* Set width to 100% */
 }
 .main-content {
     flex-grow: 1;
