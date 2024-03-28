@@ -5,13 +5,13 @@
 }
 
 .app-header {
-    background-color: #282c34;
+    background-color: gray; 
     color: white;
-    padding: 10px 20px;
+    padding: 10px 0; 
     text-align: center;
     font-size: 1.5rem;
+    margin: 0; 
 }
-
 .main-content {
     flex-grow: 1;
     display: flex;
