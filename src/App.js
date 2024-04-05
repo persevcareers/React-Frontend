@@ -1,6 +1,7 @@
 import React from "react";
 import Tasks from "./Tasks";
 import { Paper, TextField, Checkbox, Button } from "@material-ui/core";
+import svasLogo from "./svas.png";
 import "./App.css"; // Update your CSS file accordingly
 
 // JavaScript functions to handle slider functionality
@@ -21,6 +22,16 @@ class App extends Tasks {
         const { tasks, currentTask } = this.state;
         return (
             <div className="app">
+                <header className="app-header">
+                    <header className="header-container">
+                        <h1>Perseverance Software Training Institute</h1>
+                    </header>
+                    <div className="social-buttons" style={{ display: "flex", gap: "10px", position: "absolute", top: "5px", right: "10px" }}>
+                        <a href="https://www.facebook.com/profile.php?id=61550316355738" target="_blank" className="social-button"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook" /></a>
+                        <a href="https://www.instagram.com/perseverance_institute/" target="_blank" className="social-button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" /></a>
+                        <a href="https://www.youtube.com/@persevcareers6577" target="_blank" className="social-button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/YouTube_social_red_circle_%282017%29.svg/2048px-YouTube_social_red_circle_%282017%29.svg.png" alt="YouTube" /></a>
+                    </div>
+                </header>
                 <nav>
                     <a href="#">Home</a>
                     <a href="#featured-courses-section">Courses</a>
@@ -34,9 +45,6 @@ class App extends Tasks {
                     </div>
                     <a href="#about-section1">About us</a>
                 </nav>
-                <header className="app-header">
-                    <h1>Perseverance Student's Corner</h1>
-                </header>
                 <div id="slider-container">
                     <button id="prevBtn" onClick={prevSlide}>❮</button>
                     <div id="slider">
@@ -53,11 +61,15 @@ class App extends Tasks {
                     <p>
                         The IT field offers exciting opportunities for innovation, problem-solving, and continuous learning.
                         Embrace cutting-edge technologies, contribute to digital transformation, and shape the future of technology.
-                        Explore diverse career paths and be part of a dynamic community that drives progress and impact.
-                        <p>The IT field encompasses a wide range of roles and specializations, including software development, cybersecurity, data analysis, network administration, cloud computing, and more. This diversity allows individuals to find a niche that aligns with their interests and skills.</p>
-                        <p>There is a consistent and growing demand for skilled IT professionals across various industries. Organizations rely on technology, creating a need for individuals with expertise in IT.</p>
-                        <p>IT professionals often receive competitive salaries due to the specialized skills and knowledge required for their roles. As technology becomes more integral to business operations, the value of skilled IT professionals continues to rise.
-                        </p>
+                    </p>
+                    <p>
+                        The IT field encompasses a wide range of roles and specializations, including software development, cybersecurity, data analysis, network administration, cloud computing, and more. This diversity allows individuals to find a niche that aligns with their interests and skills.
+                    </p>
+                    <p>
+                        There is a consistent and growing demand for skilled IT professionals across various industries. Organizations rely on technology, creating a need for individuals with expertise in IT.
+                    </p>
+                    <p>
+                        IT professionals often receive competitive salaries due to the specialized skills and knowledge required for their roles. As technology becomes more integral to business operations, the value of skilled IT professionals continues to rise.
                     </p>
                 </section>
                 <div className="main-content">
@@ -193,5 +205,5 @@ class App extends Tasks {
         );
     }
 }
-
+  
 export default App;
