@@ -1,10 +1,9 @@
 import React from "react";
 import Tasks from "./Tasks";
-import { Paper, TextField, Checkbox, Button } from "@material-ui/core";
-import svasLogo from "./svas.png";
-import "./App.css"; // Update your CSS file accordingly
+import { Paper, TextField, Checkbox, Button } from "@material-ui/core"; 
+import "./App.css";
 
-// JavaScript functions to handle slider functionality
+
 function prevSlide() {
     const slider = document.getElementById("slider");
     slider.scrollLeft -= slider.offsetWidth;
