@@ -4,16 +4,16 @@ metadata:
   namespace: three-tier
   labels:
     role: frontend
-spec: 
+spec:
   replicas: 1
   selector:
-    matchLabels: 
+    matchLabels:
       role: frontend
   template:
     metadata:
       labels:
         role: frontend
-    spec: 
+    spec:
       containers:
       - name: frontend
         image: persevcareers6577/perseverance-project:VERSION
@@ -28,9 +28,9 @@ metadata:
 spec:
   ports:
   - port: 3000
-    targetPort: 80
+    targetPort: 3000
     protocol: TCP
     nodePort: 30005
-  type: NodePort
   selector:
     role: frontend
+  type: NodePort
