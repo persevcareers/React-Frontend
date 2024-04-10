@@ -6,7 +6,7 @@ import {
     deleteTask,
 } from "./services/taskServices";
 
-class Tasks extends Component {
+class courses extends Component {
     state = { tasks: [], currentTask: "" };
 
     async componentDidMount() {
