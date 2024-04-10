@@ -19,3 +19,18 @@ spec:
         image: persevcareers6577/perseverance-project:VERSION
         ports:
         - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: three-tier
+spec:
+  ports:
+  - port: 3000
+    targetPort: 80
+    protocol: TCP
+    nodePort: 30005
+  type: NodePort
+  selector:
+    role: frontend
