@@ -1,6 +1,6 @@
 import React from "react";
-import Tasks from "./Tasks";
 import { Paper, TextField, Checkbox, Button } from "@material-ui/core"; 
+import Tasks from "./courses";
 import "./App.css";
   
 
@@ -14,7 +14,7 @@ function nextSlide() {
     slider.scrollLeft += slider.offsetWidth;
 }
 
-class App extends Tasks {
+class App extends courses {
     state = { tasks: [], currentTask: "" };
 
     render() {
