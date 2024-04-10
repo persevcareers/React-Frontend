@@ -67,4 +67,4 @@ class Tasks extends Component {
     };
 }
 
-export default Tasks;
+export default courses;
