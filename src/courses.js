@@ -2,7 +2,7 @@ import { Component } from "react";
 import {
     addTask,
     getTasks,
-    updateTask,
+    updateTask, 
     deleteTask,
 } from "./services/taskServices";
 
