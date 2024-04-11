@@ -49,6 +49,16 @@ pipeline {
                 }
             }
         }
+    stages {
+        stage('Cleanup Docker Images') {
+            steps {
+                script {
+                    def docker_image = "persevcareers6577/perseverance-project:${version}"
+                    sh "sudo docker rmi -f ${docker_image}"
+                }
+            }
+        }
+    }
         stage('Deploy to Kubernetes') {
             steps {
 
@@ -58,10 +68,10 @@ pipeline {
                         def version = 'frontend_${env.BUILD_NUMBER}'
                       withEnv(["VERSION=${env.version}"])
                       {
-                          sh "echo ${VERSION}"
-                          sh "export KUBECONFIG=${kubeconfigPath}"
-                    //     sh "kubectl scale deploy frontend --replicas=0 -n three-tier"
-                          sh" sed -i 's/VERSION/${VERSION}/g' frontend.yml"
+                         sh "echo ${VERSION}"
+                         sh "export KUBECONFIG=${kubeconfigPath}"
+                         sh "kubectl scale deploy frontend --replicas=0 -n three-tier"
+                         sh" sed -i 's/VERSION/${VERSION}/g' frontend.yml"
                          sh " cat frontend.yml"
                          sh "kubectl apply -f frontend.yml --validate=false"
                          sh "kubectl get pods -n three-tier"
